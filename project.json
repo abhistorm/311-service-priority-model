@@ -1,0 +1,54 @@
+{
+  "id": "092",
+  "slug": "092-311-service-priority-model",
+  "name": "311 Service Priority Model",
+  "domain": "Public services & civic systems",
+  "domain_slug": "public-services",
+  "task_type": "classification",
+  "target": "p092_311_service_priority_model_outcome_label",
+  "features": [
+    "p092_311_service_priority_model_wait_time_min",
+    "p092_311_service_priority_model_application_completeness",
+    "p092_311_service_priority_model_service_load",
+    "p092_311_service_priority_model_repeat_visits",
+    "p092_311_service_priority_model_travel_distance_km",
+    "p092_311_service_priority_model_staff_ratio",
+    "p092_311_service_priority_model_response_delay_hours",
+    "p092_311_service_priority_model_neighborhood_index",
+    "p092_311_service_priority_model_weather_impact",
+    "p092_311_service_priority_model_request_complexity"
+  ],
+  "model_key": "random-forest",
+  "model_class": "RandomForestClassifier",
+  "serving": "Flask",
+  "extension_focus": "PostgreSQL prediction logging",
+  "seed": 202692,
+  "rows": 397287,
+  "dataset_bytes": 34565392,
+  "model_training": {
+    "source": "synthetic dataset bundled with this project",
+    "sample_rows": 5000,
+    "fit_rows": 4000,
+    "holdout_rows": 1000,
+    "metrics": {
+      "accuracy": 0.881,
+      "macro_f1": 0.8809,
+      "roc_auc": 0.9546
+    },
+    "artifact": "models/model.joblib"
+  },
+  "gui_feature": {
+    "mode": "threshold",
+    "title": "311 Service Priority · Decision threshold tuner",
+    "description": "Adjust the alert threshold and inspect how the classification changes. This panel is tuned to 311 Service Priority Model and its p092 311 service priority model application completeness signal.",
+    "focus_feature": "p092_311_service_priority_model_application_completeness",
+    "mode_title": "Decision threshold tuner"
+  },
+  "gui": {
+    "frontend": "HTML/CSS/JavaScript",
+    "backend": "FastAPI",
+    "standalone": true
+  },
+  "model_artifact": "models/model.joblib",
+  "model_bytes": 5287061
+}
