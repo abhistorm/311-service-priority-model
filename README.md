@@ -1,6 +1,6 @@
 # 311 Service Priority Model
 
-**Project 092 of 100 · Public services & civic systems · Classification**
+**Project · Public services & civic systems · Classification**
 
 A standalone, runnable AI/ML project with its own saved fitted model, prediction API, and browser GUI. Its primary workflow is **311 Service Priority · Decision threshold tuner**. The feature fields, target, model, and project-specific control are configured for this use case.
 
